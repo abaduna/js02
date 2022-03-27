@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<label for="">nombre</label><input type="text" id="textNombre"><br>
+<label for="">apellido</label><input type="text" id="textapellido"><br>
+<label for="">Celu</label><input type="text" id="textCelu"><br>
+<label for="">mail</label><input type="text" id="textmail"><br>
+<button id="btnAgregar">Cargar</button>
+<div id="listado"></div>
+
+<body>
+  <script>
+    window.onload = iniciar
+    var personas = [];
+    function iniciar() {
+      var btnAgregar = document.getElementById("btnAgregar")
+      btnAgregar.addEventListener("click", agregar)
+
+    }
+    function agregar() {
+
+      var textNombre = document.getElementById("textNombre")
+      var textApellido = document.getElementById("textapellido")
+      var textCelu = document.getElementById("textCelu")
+      var textmail = document.getElementById("textmail")
+      nombre = textNombre.value
+      apellido = textApellido.value
+      celu = textCelu.value
+      mail = textmail.value
+      var persona = {
+        "nombre": nombre,
+        "apellido": apellido,
+        "Celu": celu,
+        "mail": mail
+
+      }
+      personas.push(persona)
+      console.log(personas)
+      mostrarPersonas()
+    }
+    function mostrarPersonas() {
+      var listado = document.getElementById("listado")
+      var html = "";
+
+      for (var persona of personas) {
+        html += " <br>  " + persona.nombre + "<br>" + persona.apellido + "<br>" + persona.Celu + "<br>" + persona.mail + "<br>"
+      }
+      listado.innerHTML = html
+
+
+    }
+  </script>
+</body>
+
+</html>
